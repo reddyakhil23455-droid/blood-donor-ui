@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://ide-vol-corners-integrity.trycloudflare.com/api/donors";
+const API_URL = "https://blood-donor-backend-f54x.onrender.com/api/donors";
 
 class DonorService {
 
@@ -19,6 +19,7 @@ class DonorService {
     deleteDonor(id) {
         return axios.delete(`${API_URL}/${id}`);
     }
+
 }
 
 export default new DonorService();
