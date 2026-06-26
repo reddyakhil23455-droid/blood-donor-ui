@@ -55,7 +55,6 @@ function Register() {
         } catch (error) {
 
             alert("Registration Failed");
-
             console.log(error);
 
         }
@@ -64,126 +63,141 @@ function Register() {
 
     return (
 
-        <div className="register">
+        <div className="register-page">
 
-            <h1>❤️ Blood Donor Registration</h1>
+            <div className="register-card">
 
-            <form onSubmit={handleSubmit}>
+                <h1>❤️ Blood Donor Registration</h1>
 
-                <input
-                    type="text"
-                    placeholder="Full Name"
-                    name="fullName"
-                    value={donor.fullName}
-                    onChange={handleChange}
-                />
+                <form className="register-form" onSubmit={handleSubmit}>
 
-                <input
-                    type="number"
-                    placeholder="Age"
-                    name="age"
-                    value={donor.age}
-                    onChange={handleChange}
-                />
+                    <input
+                        type="text"
+                        placeholder="Full Name"
+                        name="fullName"
+                        value={donor.fullName}
+                        onChange={handleChange}
+                    />
 
-                <select
-                    name="gender"
-                    value={donor.gender}
-                    onChange={handleChange}
-                >
-                    <option value="">Gender</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                </select>
+                    <input
+                        type="number"
+                        placeholder="Age"
+                        name="age"
+                        value={donor.age}
+                        onChange={handleChange}
+                    />
 
-                <select
-                    name="bloodGroup"
-                    value={donor.bloodGroup}
-                    onChange={handleChange}
-                >
-                    <option value="">Blood Group</option>
-                    <option>O+</option>
-                    <option>O-</option>
-                    <option>A+</option>
-                    <option>A-</option>
-                    <option>B+</option>
-                    <option>B-</option>
-                    <option>AB+</option>
-                    <option>AB-</option>
-                </select>
+                    <select
+                        name="gender"
+                        value={donor.gender}
+                        onChange={handleChange}
+                    >
+                        <option value="">Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
 
-                <input
-                    type="text"
-                    placeholder="Phone"
-                    name="phone"
-                    value={donor.phone}
-                    onChange={handleChange}
-                />
+                    <select
+                        name="bloodGroup"
+                        value={donor.bloodGroup}
+                        onChange={handleChange}
+                    >
+                        <option value="">Blood Group</option>
+                        <option>O+</option>
+                        <option>O-</option>
+                        <option>A+</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B-</option>
+                        <option>AB+</option>
+                        <option>AB-</option>
+                    </select>
 
-                <input
-                    type="email"
-                    placeholder="Email"
-                    name="email"
-                    value={donor.email}
-                    onChange={handleChange}
-                />
+                    <input
+                        type="text"
+                        placeholder="Phone Number"
+                        name="phone"
+                        value={donor.phone}
+                        onChange={handleChange}
+                    />
 
-                <input
-                    type="text"
-                    placeholder="State"
-                    name="state"
-                    value={donor.state}
-                    onChange={handleChange}
-                />
+                    <input
+                        type="email"
+                        placeholder="Email Address"
+                        name="email"
+                        value={donor.email}
+                        onChange={handleChange}
+                    />
 
-                <input
-                    type="text"
-                    placeholder="District"
-                    name="district"
-                    value={donor.district}
-                    onChange={handleChange}
-                />
+                    <input
+                        type="text"
+                        placeholder="State"
+                        name="state"
+                        value={donor.state}
+                        onChange={handleChange}
+                    />
 
-                <input
-                    type="text"
-                    placeholder="City"
-                    name="city"
-                    value={donor.city}
-                    onChange={handleChange}
-                />
+                    <input
+                        type="text"
+                        placeholder="District"
+                        name="district"
+                        value={donor.district}
+                        onChange={handleChange}
+                    />
 
-                <input
-                    type="text"
-                    placeholder="Pincode"
-                    name="pincode"
-                    value={donor.pincode}
-                    onChange={handleChange}
-                />
+                    <input
+                        type="text"
+                        placeholder="City"
+                        name="city"
+                        value={donor.city}
+                        onChange={handleChange}
+                    />
 
-                <textarea
-                    placeholder="Address"
-                    name="address"
-                    value={donor.address}
-                    onChange={handleChange}
-                />
+                    <input
+                        type="text"
+                        placeholder="Pincode"
+                        name="pincode"
+                        value={donor.pincode}
+                        onChange={handleChange}
+                    />
 
-                <input
-                    type="date"
-                    name="lastDonationDate"
-                    value={donor.lastDonationDate}
-                    onChange={handleChange}
-                />
+                    <textarea
+                        placeholder="Complete Address"
+                        name="address"
+                        value={donor.address}
+                        onChange={handleChange}
+                    />
 
-                <button type="submit">
-                    Register Donor
-                </button>
+                    <div className="date-row">
 
-            </form>
+                        <label htmlFor="lastDonationDate">
+                            🗓️ Last Donation Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="lastDonationDate"
+                            name="lastDonationDate"
+                            value={donor.lastDonationDate}
+                            onChange={handleChange}
+                        />
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        className="register-btn"
+                    >
+                        ❤️ Register Donor
+                    </button>
+
+                </form>
+
+            </div>
 
         </div>
 
     );
-
 }
 
 export default Register;
