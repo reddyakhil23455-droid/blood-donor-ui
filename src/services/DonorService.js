@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8085/api/donors";
+const API_URL = "https://ide-vol-corners-integrity.trycloudflare.com/api/donors";
 
 class DonorService {
 
