@@ -18,17 +18,75 @@ function Register() {
         lastDonationDate: "",
         availability: "Available"
     });
+    const [errors, setErrors] = useState({});
 
     const handleChange = (e) => {
-        setDonor({
-            ...donor,
-            [e.target.name]: e.target.value
-        });
-    };
+
+    setDonor({
+        ...donor,
+        [e.target.name]: e.target.value
+    });
+
+    setErrors({
+        ...errors,
+        [e.target.name]: false
+    });
+};
+    const validate = () => {
+
+    let newErrors = {};
+
+    if (!donor.fullName.trim())
+        newErrors.fullName = true;
+
+    if (!donor.age)
+        newErrors.age = true;
+
+    if (!donor.gender)
+        newErrors.gender = true;
+
+    if (!donor.bloodGroup)
+        newErrors.bloodGroup = true;
+
+    if (!donor.phone.trim())
+        newErrors.phone = true;
+
+    if (!donor.email.trim())
+        newErrors.email = true;
+
+    if (!donor.state.trim())
+        newErrors.state = true;
+
+    if (!donor.district.trim())
+        newErrors.district = true;
+
+    if (!donor.city.trim())
+        newErrors.city = true;
+
+    if (!donor.pincode.trim())
+        newErrors.pincode = true;
+
+    if (!donor.address.trim())
+        newErrors.address = true;
+
+    if (!donor.lastDonationDate)
+        newErrors.lastDonationDate = true;
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
+};
+
+
+
 
     const handleSubmit = async (e) => {
 
         e.preventDefault();
+        if (!validate()) {
+            alert("Please fill all required fields.");
+            return;
+        }
 
         try {
 
@@ -77,6 +135,7 @@ function Register() {
                         name="fullName"
                         value={donor.fullName}
                         onChange={handleChange}
+                        className={errors.fullName ? "input-error" : ""}
                     />
 
                     <input
@@ -85,12 +144,14 @@ function Register() {
                         name="age"
                         value={donor.age}
                         onChange={handleChange}
+                        className={errors.age ? "input-error" : ""}
                     />
 
                     <select
                         name="gender"
                         value={donor.gender}
                         onChange={handleChange}
+                        className={errors.gender ? "input-error" : ""}
                     >
                         <option value="">Gender</option>
                         <option>Male</option>
@@ -101,6 +162,7 @@ function Register() {
                         name="bloodGroup"
                         value={donor.bloodGroup}
                         onChange={handleChange}
+                        className={errors.bloodGroup ? "input-error" : ""}
                     >
                         <option value="">Blood Group</option>
                         <option>O+</option>
@@ -119,6 +181,8 @@ function Register() {
                         name="phone"
                         value={donor.phone}
                         onChange={handleChange}
+                        className={errors.phone ? "input-error" : ""}
+                        
                     />
 
                     <input
@@ -127,6 +191,7 @@ function Register() {
                         name="email"
                         value={donor.email}
                         onChange={handleChange}
+                        className={errors.email ? "input-error" : ""}
                     />
 
                     <input
@@ -135,6 +200,7 @@ function Register() {
                         name="state"
                         value={donor.state}
                         onChange={handleChange}
+                        className={errors.state ? "input-error" : ""}
                     />
 
                     <input
@@ -143,6 +209,7 @@ function Register() {
                         name="district"
                         value={donor.district}
                         onChange={handleChange}
+                        className={errors.district ? "input-error" : ""}
                     />
 
                     <input
@@ -151,6 +218,7 @@ function Register() {
                         name="city"
                         value={donor.city}
                         onChange={handleChange}
+                        className={errors.city ? "input-error" : ""}
                     />
 
                     <input
@@ -159,6 +227,7 @@ function Register() {
                         name="pincode"
                         value={donor.pincode}
                         onChange={handleChange}
+                        className={errors.pincode ? "input-error" : ""}
                     />
 
                     <textarea
@@ -166,6 +235,7 @@ function Register() {
                         name="address"
                         value={donor.address}
                         onChange={handleChange}
+                        className={errors.address ? "input-error" : ""}
                     />
 
                     <div className="date-row">
@@ -180,6 +250,7 @@ function Register() {
                             name="lastDonationDate"
                             value={donor.lastDonationDate}
                             onChange={handleChange}
+                            className={errors.lastDonationDate ? "input-error" : ""}
                         />
 
                     </div>
